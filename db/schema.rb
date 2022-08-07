@@ -10,37 +10,64 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_28_005739) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_06_192957) do
   create_table "artists", force: :cascade do |t|
     t.string "name"
+    t.datetime "create_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "artists_movies", id: false, force: :cascade do |t|
+    t.integer "artist_id", null: false
+    t.integer "movie_id", null: false
+    t.index ["artist_id", "movie_id"], name: "index_artists_movies_on_artist_id_and_movie_id"
+    t.index ["movie_id", "artist_id"], name: "index_artists_movies_on_movie_id_and_artist_id"
+  end
+
+  create_table "create_relations", force: :cascade do |t|
+    t.integer "artist_id", null: false
+    t.integer "movie_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["artist_id"], name: "index_create_relations_on_artist_id"
+    t.index ["movie_id"], name: "index_create_relations_on_movie_id"
+  end
+
   create_table "directors", force: :cascade do |t|
     t.string "name"
+    t.datetime "create_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "movie_genres", force: :cascade do |t|
     t.string "name"
+    t.datetime "create_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "movies", force: :cascade do |t|
     t.string "title"
-    t.date "premiere"
-    t.integer "director_id"
-    t.integer "movie_genre_id"
-    t.text "synopsis"
+    t.string "cover_url"
+    t.date "published_at"
+    t.integer "director_id", null: false
+    t.integer "movie_genre_id", null: false
+    t.text "sinopse"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["director_id"], name: "index_movies_on_director_id"
     t.index ["movie_genre_id"], name: "index_movies_on_movie_genre_id"
   end
 
+  create_table "movies_artists", id: false, force: :cascade do |t|
+    t.integer "movies_id"
+    t.integer "artist_id"
+  end
+
+  add_foreign_key "create_relations", "artists"
+  add_foreign_key "create_relations", "movies"
   add_foreign_key "movies", "directors"
   add_foreign_key "movies", "movie_genres"
 end

@@ -1,0 +1,26 @@
+
+<div id="directors" class="d-flex mb-5 justify-content-between">
+  <h3> Diretores </h3>
+  <div>
+    <nav class="nav nav-pills ">
+    <a class="nav-item">
+   <%= link_to '/directors/new',class: "nav-link text-white bg-danger #{'active' if controller_name == 'directors'}" do %>
+        + Novo
+      <% end %> 
+      </div>
+  </div>
+  <table class="table">
+  <thead>
+   <tr>
+    <th class="col-md-3" scope="col">Nome</th>
+    <th class="col-md-8" scope="col">Criado em</th>
+    <th class="col-md-3" scope="col">Açoes</th>
+  </tr>
+  </thead>
+  <tbody>
+    <% @directors.each do |director| %>
+    <%= render director %>
+    <% end %>
+  </tbody>
+  </table>
+

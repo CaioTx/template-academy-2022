@@ -1,0 +1,79 @@
+
+
+<%= form_with(model: movie) do |form| %>
+  <% if movie.errors.any? %>
+    <div style="color: red">
+    <h2>Foi encontrado <%=movie.errors.count%> erro:</h2>
+
+      <ul>
+        <% movie.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<form>
+ <div class='form-group'>
+    <%= form.label :title, style: "display: block" %>
+    <%= form.text_field :title, class: "form-control", class: "form-control field"  %>
+  </div>
+  <br>
+<div class="row">
+            <div class="col-6 color"><%= form.label :cover_url, style: "display: block" %></div>
+            <div class="col-6 color"><%= form.label :published_at, style: "display: block " %></div>
+            <div class="col-6"><%= form.text_field :cover_url, class: "form-control field"  %></div>
+            <div class="col-6"><%= form.date_field :published_at, class: "form-control field"  %></div>
+ </div>
+<br>
+
+ <div class="row">
+            <div class="col-6 color"><%= form.label :director_id, style: "display: block" %></div>
+            <div class="col-6 color"><%= form.label :movie_genre_id, style: "display: block" %></div>
+            <div class="col-6 "><%= form.collection_select(:director_id, Director.all, :id, :name, {:prompt => "" }) %></div>
+            <div class="col-6 "><%= form.collection_select(:movie_genre_id, MovieGenre.all, :id, :name, {:prompt => "" })%></div>
+
+ </div>
+
+<br>
+
+  <div class='form-group '>
+    <%= form.label :sinopse, style: "display: block" %>
+    <%= form.text_area :sinopse, class: "form-control", class: "form-control field"  %>
+ </div>
+
+<br>
+
+
+  <div class="form-group row color">
+      <%= form.label :artist_id %>
+      <% Artist.all.each do |artist| %>
+      <div class="col-3 checkmark">
+      <%= check_box_tag "movie[artist_ids][]", artist.id%>
+      <%= artist.name%>
+        </div>
+        <% end %>
+        </div>
+        <br>
+
+
+<div class="d-flex flex-row-reverse mb-5 justify-content">
+   <div>
+    <%= form.submit "Salvar", class: 'btn btn-danger'%>
+    
+</div>
+   <div>
+  <nav class="nav nav-pills ">
+    <a class="nav-item">
+      <%= link_to '/movies', style:"background-color: #C0C0C0", class: "nav-link text-black  #{'active' if controller_name == 'directors'}" do %>
+        Cancelar
+      <% end %>
+         </div>
+</div>
+
+
+</form>
+
+<% end %>
+
+
+

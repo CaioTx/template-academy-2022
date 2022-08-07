@@ -64,6 +64,7 @@ form .form-group>label,
 form .list-group-item,
 form .form-control:focus {
   color: #C7C7CC;
+  background-color: transparent;
 }
 
 form .form-group>input:focus {
@@ -79,9 +80,9 @@ form .list-group-item {
 }
 
 form .form-check-input:checked {
-  border-color: #FF375F;
-  background-color: #FF375F;
+
 }
+
 
 .nav-pills .nav-item .nav-link.active,
 .primary {
@@ -143,3 +144,96 @@ td img {
 .light-gray-3 {
   background-color: #C7C7CC !important;
 }
+
+div.modal-header{
+  display: inline-flex;
+  justify-content: center;
+  background-color: #2C2C2E;
+}
+
+.modal-header span {
+  font-size: 30px;
+}
+.modal-header h1 {
+  font-size: 30px;
+  font-weight: 600;
+  margin: 0 0 0 10px;
+}
+
+div.modal-body{
+  text-align: center;
+  background-color: #1C1C1E;
+  padding: 40px;
+}
+
+.modal-body h4 {
+  font-size: 23px;
+  padding: 10px 0;
+}
+
+.modal-body p {
+  color: #D1D1D6;
+  font-size: 17px;
+}
+
+div.modal-footer{
+  background-color: #2C2C2E;
+}
+
+.btn#btn_modal_cancel{
+  background-color: #636366;
+  padding-inline: 35px;
+  padding-block: 10px;
+}
+
+.btn#btn_modal_delete{
+  padding-inline: 40px;
+  padding-block: 10px;
+}
+
+div.cancel{
+  margin-right: 10px;
+}
+
+.btn-danger{
+  margin-left: 10px;
+  padding-inline: 30px;
+  padding-block: 7px;
+}
+
+.nav-link{
+padding-inline: 25px;
+}
+
+.field {
+background-color: transparent;
+border-color: gray;
+color: #636366;
+}
+.checkmark{
+  border: 1px solid #636366;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 10px;
+  box-sizing: content-box;
+  outline: none;
+  
+}
+
+select{
+  height: 40px;
+  width: 520px;
+  background-color: transparent;
+  border-radius: 5px;
+  border: 1px solid #636366;
+  color: #636366;
+  padding: 0x 5px;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.color{
+
+ color:  #C7C7CC;
+}
+
