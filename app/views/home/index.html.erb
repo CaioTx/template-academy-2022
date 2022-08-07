@@ -13,7 +13,7 @@
         </strong>
       </div>
       <p class="card-text"><b>Diretor:</b> <span><%= @movies[0].director[:name]%></span></p>
-      <p class="card-text"><b>Estreia:</b> <span><%= @movies[0].published_at%></span></p>
+      <p class="card-text"><b>Estreia:</b> <span><%= formatar_data_estreia(@movies[0].published_at)%></span></p>
       <p class="card-text"><b>Gênero:</b> <span><%= @movies[0].movie_genre[:name]%></span></p>
       <p class="card-text"><b>Elenco:</b> <span><%= @movies[0].artists.collect { |a| a.name }.first(5).join(' - ')%></span></p>
       <p class="card-text text-wrap text-truncate"></p><b>Sinopse:</b> <span><%= @movies[0].sinopse%></span></p>
@@ -32,7 +32,7 @@
         <br>
         </strong>
         <p class="card-text"><b>Diretor:</b> <span><%= @movies[1].director[:name]%></span></p>
-        <p class="card-text"><b>Estreia:</b> <span><%= @movies[1].published_at%></span></p>
+        <p class="card-text"><b>Estreia:</b> <span><%= formatar_data_estreia(@movies[1].published_at)%></span></p>
         <p class="card-text"><b>Gênero:</b> <span><%= @movies[1].movie_genre[:name]%></span></p>
         <p class="card-text"><b>Elenco:</b> <span><%= @movies[1].artists.collect { |a| a.name }.first(5).join(' - ')%></span></p>
         <p class="card-text"><b>Sinopse:</b> <span><%= @movies[1].sinopse%></span></p>
@@ -48,7 +48,7 @@
         <br>
         </strong>
         <p class="card-text"><b>Diretor:</b> <span><%= @movies[2].director[:name]%></span></p>
-        <p class="card-text"><b>Estreia:</b> <span><%= @movies[2].published_at%></span></p>
+        <p class="card-text"><b>Estreia:</b> <span><%= formatar_data_estreia(@movies[2].published_at)%></span></p>
         <p class="card-text"><b>Gênero:</b> <span><%= @movies[2].movie_genre[:name]%></span></p>
         <p class="card-text"><b>Elenco:</b> <span><%= @movies[2].artists.collect { |a| a.name }.first(5).join(' - ')%></span></p>
         <p class="card-text"><b>Sinopse:</b> <span><%= @movies[2].sinopse%></span></p>
@@ -64,7 +64,7 @@
         <br>
         </strong>
         <p class="card-text"><b>Diretor:</b> <span><%= @movies[3].director[:name]%></span></p>
-        <p class="card-text"><b>Estreia:</b> <span><%= @movies[3].published_at%></span></p>
+        <p class="card-text"><b>Estreia:</b> <span><%= formatar_data_estreia(@movies[3].published_at)%></span></p>
         <p class="card-text"><b>Gênero:</b> <span><%= @movies[3].movie_genre[:name]%></span></p>
         <p class="card-text"><b>Elenco:</b> <span><%= @movies[3].artists.collect { |a| a.name }.first(5).join(' - ')%></span></p>
         <p class="card-text"><b>Sinopse:</b> <span><%= @movies[3].sinopse%></span></p>
